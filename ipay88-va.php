@@ -194,7 +194,7 @@ function ipay88_va_gateway_init_gateway_class() {
             
             echo '<fieldset id="' . esc_attr($this->id) . '-form" class="wc-payment-form" style="background:transparent;">';
             
-            echo '<div class="form-row form-row-wide"><label>Pilih Bank <span class="required">*</span></label>';
+            echo '<div><label>Pilih Bank <span class="required">*</span></label>';
             echo '<select name="' . esc_attr($this->id) . '_bank" id="' . esc_attr($this->id) . '_bank">';
             echo '<option value="">-- Pilih Bank --</option>';
             
