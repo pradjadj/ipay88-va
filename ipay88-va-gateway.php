@@ -56,18 +56,18 @@ function ipay88_va_gateway_init() {
     // Include settings page class
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ipay88-va-settings.php';
 
-    // Initialize settings page
-    add_action( 'admin_menu', 'ipay88_va_add_admin_menu' );
-    function ipay88_va_add_admin_menu() {
-        add_menu_page(
-            __( 'iPay88 Settings', 'ipay88-va' ),
-            __( 'iPay88 Settings', 'ipay88-va' ),
-            'manage_options',
-            'ipay88_va_settings',
-            array( 'iPay88_VA_Settings', 'output' ),
-            'dashicons-admin-generic',
-            56
-        );
+    // Add iPay88 VA tab to WooCommerce settings
+    add_filter( 'woocommerce_settings_tabs_array', 'ipay88_va_add_settings_tab', 50 );
+    function ipay88_va_add_settings_tab( $settings_tabs ) {
+        $settings_tabs['ipay88_va'] = __( 'iPay88 VA Settings', 'ipay88-va' );
+        return $settings_tabs;
+    }
+
+    add_action( 'woocommerce_settings_ipay88_va', 'ipay88_va_settings_tab_content' );
+    function ipay88_va_settings_tab_content() {
+        if ( class_exists( 'iPay88_VA_Settings' ) ) {
+            iPay88_VA_Settings::output();
+        }
     }
 
     // Add WooCommerce System Status tab for error logs

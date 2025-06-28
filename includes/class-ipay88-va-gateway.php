@@ -24,9 +24,21 @@ abstract class WC_Gateway_iPay88_VA_Base extends WC_Payment_Gateway {
         $this->init_form_fields();
         $this->init_settings();
 
-        $this->merchant_code = $this->get_option( 'merchant_code' );
-        $this->merchant_key  = $this->get_option( 'merchant_key' );
-        $this->api_url       = $this->get_option( 'api_url', 'https://payment.ipay88.co.id/ePayment/WebService/PaymentAPI/Checkout' );
+        // Load centralized settings
+        $settings = iPay88_VA_Settings::get_settings();
+        $this->merchant_code = $settings['merchant_code'] ?? '';
+        $this->merchant_key  = $settings['merchant_key'] ?? '';
+        $this->expiry_time   = $settings['expiry_time'] ?? 60;
+        $this->order_status  = $settings['order_status'] ?? 'wc-processing';
+        $this->environment   = $settings['environment'] ?? 'production';
+        $this->debug_log     = $settings['debug_log'] ?? 'no';
+
+        // Set API URL based on environment
+        if ( $this->environment === 'sandbox' ) {
+            $this->api_url = 'https://sandbox.ipay88.co.id/ePayment/WebService/PaymentAPI/Checkout';
+        } else {
+            $this->api_url = 'https://payment.ipay88.co.id/ePayment/WebService/PaymentAPI/Checkout';
+        }
 
         // Hooks
         add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
