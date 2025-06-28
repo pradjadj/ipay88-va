@@ -48,7 +48,7 @@ function ipay88_va_gateway_init() {
     // Add settings link next to deactivate button
     add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'ipay88_va_plugin_action_links' );
     function ipay88_va_plugin_action_links( $links ) {
-        $settings_link = '<a href="' . admin_url( 'admin.php?page=ipay88_va_settings' ) . '">' . __( 'Settings', 'ipay88-va' ) . '</a>';
+        $settings_link = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=ipay88_va' ) . '">' . __( 'Settings', 'ipay88-va' ) . '</a>';
         array_unshift( $links, $settings_link );
         return $links;
     }
