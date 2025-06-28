@@ -10,9 +10,6 @@ class WC_Gateway_iPay88_VA_CIMB extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 135;
     public $title = 'CIMB Niaga Virtual Account';
 
-    public $payment_id = 144;
-    public $title = 'CIMB Virtual Account';
-
     public function __construct() {
         parent::__construct();
         

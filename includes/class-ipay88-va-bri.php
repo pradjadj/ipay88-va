@@ -10,9 +10,6 @@ class WC_Gateway_iPay88_VA_BRI extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 118;
     public $title = 'BRI Virtual Account';
 
-    public $payment_id = 142;
-    public $title = 'BRI Virtual Account';
-
     public function __construct() {
         parent::__construct();
         

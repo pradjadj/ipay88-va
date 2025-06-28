@@ -10,9 +10,6 @@ class WC_Gateway_iPay88_VA_Maybank extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 9;
     public $title = 'Maybank Virtual Account';
 
-    public $payment_id = 146;
-    public $title = 'Maybank Virtual Account';
-
     public function __construct() {
         parent::__construct();
         

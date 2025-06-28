@@ -7,7 +7,7 @@ require_once plugin_dir_path( __FILE__ ) . 'class-ipay88-va-gateway.php';
 
 class WC_Gateway_iPay88_VA_BNI extends WC_Gateway_iPay88_VA_Base {
 
-    public $payment_id = 141;
+    public $payment_id = 83;
     public $title = 'BNI Virtual Account';
 
 

@@ -10,9 +10,6 @@ class WC_Gateway_iPay88_VA_Mandiri extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 119;
     public $title = 'Mandiri Virtual Account';
 
-    public $payment_id = 143;
-    public $title = 'Mandiri Virtual Account';
-
     public function __construct() {
         parent::__construct();
         

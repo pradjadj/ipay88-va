@@ -10,9 +10,6 @@ class WC_Gateway_iPay88_VA_Danamon extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 111;
     public $title = 'Danamon Virtual Account';
 
-    public $payment_id = 145;
-    public $title = 'Danamon Virtual Account';
-
     public function __construct() {
         parent::__construct();
         
