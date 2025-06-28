@@ -10,22 +10,26 @@ class WC_Gateway_iPay88_VA_Maybank extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 9;
     public $title = 'Maybank Virtual Account';
 
+    public $payment_id = 146;
+    public $title = 'Maybank Virtual Account';
+
     public function __construct() {
         parent::__construct();
-
+        
         $this->id                 = 'ipay88_va_maybank';
         $this->method_title       = __( 'iPay88 Maybank VA', 'ipay88-va' );
         $this->method_description = __( 'Pay using iPay88 Maybank Virtual Account.', 'ipay88-va' );
 
-        $this->title              = $this->get_option( 'title', 'Maybank Virtual Account' );
-        $this->description        = $this->get_option( 'description', '' );
+        $this->init_form_fields();
+        $this->init_settings();
 
-        $this->supports           = array(
+        $this->title       = $this->get_option('title', $this->title);
+        $this->description = $this->get_option('description', 'Pay using Maybank Virtual Account via iPay88.');
+
+        $this->supports = array(
             'products',
         );
 
-        $this->init_form_fields();
-        $this->init_settings();
 
         $settings = iPay88_VA_Settings::get_settings();
         $this->merchant_code = $settings['merchant_code'] ?? '';

@@ -7,25 +7,27 @@ require_once plugin_dir_path( __FILE__ ) . 'class-ipay88-va-gateway.php';
 
 class WC_Gateway_iPay88_VA_BNI extends WC_Gateway_iPay88_VA_Base {
 
-    public $payment_id = 83;
+    public $payment_id = 141;
     public $title = 'BNI Virtual Account';
+
 
     public function __construct() {
         parent::__construct();
-
+        
         $this->id                 = 'ipay88_va_bni';
         $this->method_title       = __( 'iPay88 BNI VA', 'ipay88-va' );
         $this->method_description = __( 'Pay using iPay88 BNI Virtual Account.', 'ipay88-va' );
 
-        $this->title              = $this->get_option( 'title', 'BNI Virtual Account' );
-        $this->description        = $this->get_option( 'description', '' );
+        $this->init_form_fields();
+        $this->init_settings();
 
-        $this->supports           = array(
+        $this->title       = $this->get_option('title', $this->title);
+        $this->description = $this->get_option('description', 'Pay using BNI Virtual Account via iPay88.');
+
+        $this->supports = array(
             'products',
         );
 
-        $this->init_form_fields();
-        $this->init_settings();
 
         $settings = iPay88_VA_Settings::get_settings();
         $this->merchant_code = $settings['merchant_code'] ?? '';

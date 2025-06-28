@@ -10,22 +10,26 @@ class WC_Gateway_iPay88_VA_Danamon extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 111;
     public $title = 'Danamon Virtual Account';
 
+    public $payment_id = 145;
+    public $title = 'Danamon Virtual Account';
+
     public function __construct() {
         parent::__construct();
-
+        
         $this->id                 = 'ipay88_va_danamon';
         $this->method_title       = __( 'iPay88 Danamon VA', 'ipay88-va' );
         $this->method_description = __( 'Pay using iPay88 Danamon Virtual Account.', 'ipay88-va' );
 
-        $this->title              = $this->get_option( 'title', 'Danamon Virtual Account' );
-        $this->description        = $this->get_option( 'description', '' );
+        $this->init_form_fields();
+        $this->init_settings();
 
-        $this->supports           = array(
+        $this->title       = $this->get_option('title', $this->title);
+        $this->description = $this->get_option('description', 'Pay using Danamon Virtual Account via iPay88.');
+
+        $this->supports = array(
             'products',
         );
 
-        $this->init_form_fields();
-        $this->init_settings();
 
         $settings = iPay88_VA_Settings::get_settings();
         $this->merchant_code = $settings['merchant_code'] ?? '';

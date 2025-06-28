@@ -10,22 +10,26 @@ class WC_Gateway_iPay88_VA_Mandiri extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 119;
     public $title = 'Mandiri Virtual Account';
 
+    public $payment_id = 143;
+    public $title = 'Mandiri Virtual Account';
+
     public function __construct() {
         parent::__construct();
-
+        
         $this->id                 = 'ipay88_va_mandiri';
         $this->method_title       = __( 'iPay88 Mandiri VA', 'ipay88-va' );
         $this->method_description = __( 'Pay using iPay88 Mandiri Virtual Account.', 'ipay88-va' );
 
-        $this->title              = $this->get_option( 'title', 'Mandiri Virtual Account' );
-        $this->description        = $this->get_option( 'description', '' );
+        $this->init_form_fields();
+        $this->init_settings();
 
-        $this->supports           = array(
+        $this->title       = $this->get_option('title', $this->title);
+        $this->description = $this->get_option('description', 'Pay using Mandiri Virtual Account via iPay88.');
+
+        $this->supports = array(
             'products',
         );
 
-        $this->init_form_fields();
-        $this->init_settings();
 
         $settings = iPay88_VA_Settings::get_settings();
         $this->merchant_code = $settings['merchant_code'] ?? '';

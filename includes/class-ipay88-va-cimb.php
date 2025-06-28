@@ -10,22 +10,26 @@ class WC_Gateway_iPay88_VA_CIMB extends WC_Gateway_iPay88_VA_Base {
     public $payment_id = 135;
     public $title = 'CIMB Niaga Virtual Account';
 
+    public $payment_id = 144;
+    public $title = 'CIMB Virtual Account';
+
     public function __construct() {
         parent::__construct();
-
+        
         $this->id                 = 'ipay88_va_cimb';
-        $this->method_title       = __( 'iPay88 CIMB Niaga VA', 'ipay88-va' );
-        $this->method_description = __( 'Pay using iPay88 CIMB Niaga Virtual Account.', 'ipay88-va' );
-
-        $this->title              = $this->get_option( 'title', 'CIMB Niaga Virtual Account' );
-        $this->description        = $this->get_option( 'description', '' );
-
-        $this->supports           = array(
-            'products',
-        );
+        $this->method_title       = __( 'iPay88 CIMB VA', 'ipay88-va' );
+        $this->method_description = __( 'Pay using iPay88 CIMB Virtual Account.', 'ipay88-va' );
 
         $this->init_form_fields();
         $this->init_settings();
+
+        $this->title       = $this->get_option('title', $this->title);
+        $this->description = $this->get_option('description', 'Pay using CIMB Virtual Account via iPay88.');
+
+        $this->supports = array(
+            'products',
+        );
+
 
         $settings = iPay88_VA_Settings::get_settings();
         $this->merchant_code = $settings['merchant_code'] ?? '';

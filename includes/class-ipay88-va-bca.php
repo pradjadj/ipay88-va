@@ -11,21 +11,27 @@ class WC_Gateway_iPay88_VA_BCA extends WC_Gateway_iPay88_VA_Base {
     public $title = 'BCA Virtual Account';
 
     public function __construct() {
+        $this->payment_id = 140;
+        $this->title = 'BCA Virtual Account';
+        
         parent::__construct();
-
+        
         $this->id                 = 'ipay88_va_bca';
         $this->method_title       = __( 'iPay88 BCA VA', 'ipay88-va' );
         $this->method_description = __( 'Pay using iPay88 BCA Virtual Account.', 'ipay88-va' );
 
-        $this->title              = $this->get_option( 'title', 'BCA Virtual Account' );
-        $this->description        = $this->get_option( 'description', '' );
+        // Initialize settings after parent constructor
+        $this->init_form_fields();
+        $this->init_settings();
 
-        $this->supports           = array(
+        $this->title       = $this->get_option('title', $this->title);
+        $this->description = $this->get_option('description', 'Pay using BCA Virtual Account via iPay88.');
+
+
+        $this->supports = array(
             'products',
         );
 
-        $this->init_form_fields();
-        $this->init_settings();
 
         $settings = iPay88_VA_Settings::get_settings();
         $this->merchant_code = $settings['merchant_code'] ?? '';
