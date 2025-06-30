@@ -1,0 +1,91 @@
+.ipay88-va-payment-info {
+    border: 2px solid #4CAF50 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    max-width: 100% !important;
+    margin: 20px auto !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.ipay88-va-payment-info h2 {
+    text-align: center !important;
+    font-weight: bold !important;
+    margin-bottom: 20px !important;
+}
+
+.ipay88-va-payment-info p {
+    text-align: center !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+}
+
+/* Payment Status Messages */
+.ipay88-va-payment-status {
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.ipay88-va-payment-status.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.ipay88-va-payment-status.pending {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+.ipay88-va-payment-status.cancelled {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.ipay88-va-payment-status.timeout {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+.ipay88-va-payment-status h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.ipay88-va-number {
+    background-color: #e6f4ea !important;
+    border: 1px dashed #4CAF50 !important;
+    color: #4CAF50 !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    text-align: center !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 20px !important;
+}
+
+.ipay88-va-amount {
+    text-align: center !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: #d63638 !important;
+    margin-bottom: 20px !important;
+}
+
+.ipay88-copy-buttons {
+    text-align: center !important;
+}
+
+.ipay88-copy-btn {
+    border: none !important;
+    padding: 10px 20px !important;
+    margin: 0 10px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    font-size: 9px !important;
+    border-radius: 4px !important;
+}
